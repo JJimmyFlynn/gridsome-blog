@@ -1,0 +1,16 @@
+{
+  "name": "Gridsome Blog",
+  "schemaPath": "schema.graphql",
+  "extensions": {
+    "endpoints": {
+      "Full Scheme": {
+        "url": "http://localhost:8080/___graphql",
+        "headers": {
+          // If you need auth, add it here
+          "Authorization": "Bearer TOKEN"
+        },
+        "introspect": true
+      }
+    }
+  }
+}
