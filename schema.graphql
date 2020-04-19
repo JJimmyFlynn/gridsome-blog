@@ -110,6 +110,7 @@ type ContentfulBlogPost implements Node {
   heroImage: ContentfulAsset
   id: ID!
   locale: String
+  path(to: String = "default"): String
   publishDate(
     "Date format"
     format: String,
@@ -245,6 +246,55 @@ type ContentfulPersonEdge implements NodeConnectionEdge {
   previous: ContentfulPerson
 }
 
+type ContentfulSettingsSidebar implements Node {
+  aboutMeCopy: String
+  aboutMeImage: ContentfulAsset
+  belongsTo(
+    filter: BelongsToFilterInput,
+    limit: Int,
+    order: SortOrder = DESC,
+    page: Int,
+    "Defaults to 25 when page is provided."
+    perPage: Int,
+    skip: Int = 0,
+    sort: [SortArgument!],
+    sortBy: String = "date"
+  ): NodeBelongsTo
+  createdAt(
+    "Date format"
+    format: String,
+    "Locale"
+    locale: String
+  ): Date
+  date(
+    "Date format"
+    format: String,
+    "Locale"
+    locale: String
+  ): Date
+  id: ID!
+  locale: String
+  title: String
+  updatedAt(
+    "Date format"
+    format: String,
+    "Locale"
+    locale: String
+  ): Date
+}
+
+type ContentfulSettingsSidebarConnection implements NodeConnection {
+  edges: [ContentfulSettingsSidebarEdge]
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
+type ContentfulSettingsSidebarEdge implements NodeConnectionEdge {
+  next: ContentfulSettingsSidebar
+  node: ContentfulSettingsSidebar
+  previous: ContentfulSettingsSidebar
+}
+
 type Metadata {
   pathPrefix: String
   siteDescription: String
@@ -329,6 +379,18 @@ type Query {
     sort: [SortArgument],
     sortBy: String = "date"
   ): ContentfulPersonConnection
+  allContentfulSettingsSidebar(
+    "Filter for ContentfulSettingsSidebar nodes."
+    filter: ContentfulSettingsSidebarFilterInput,
+    limit: Int,
+    order: SortOrder = DESC,
+    page: Int,
+    "Defaults to 25 when page is provided."
+    perPage: Int,
+    skip: Int = 0,
+    sort: [SortArgument],
+    sortBy: String = "date"
+  ): ContentfulSettingsSidebarConnection
   allPage(
     "Filter pages."
     filter: PageFilterInput
@@ -357,6 +419,12 @@ type Query {
     nullable: Boolean = false,
     path: String
   ): ContentfulPerson
+  contentfulSettingsSidebar(
+    id: ID,
+    "Will return an error if not nullable."
+    nullable: Boolean = false,
+    path: String
+  ): ContentfulSettingsSidebar
   metaData: Metadata @deprecated(reason : "Use Query.metadata instead.")
   metadata: Metadata
   page(path: String!): Page
@@ -387,6 +455,7 @@ enum TypeName {
   ContentfulBlogPost
   ContentfulPageHome
   ContentfulPerson
+  ContentfulSettingsSidebar
 }
 
 input BelongsToFilterInput {
@@ -420,6 +489,7 @@ input ContentfulBlogPostFilterInput {
   heroImage: ContentfulAssetInferredQueryOperatorInput
   id: IDQueryOperatorInput
   locale: StringQueryOperatorInput
+  path: StringQueryOperatorInput
   publishDate: DateQueryOperatorInput
   slug: StringQueryOperatorInput
   tags: StringListQueryOperatorInput
@@ -453,6 +523,17 @@ input ContentfulPersonInferredQueryOperatorInput {
   ne: ID
   "Use the id field instead."
   nin: [ID]
+}
+
+input ContentfulSettingsSidebarFilterInput {
+  aboutMeCopy: StringQueryOperatorInput
+  aboutMeImage: ContentfulAssetInferredQueryOperatorInput
+  createdAt: DateQueryOperatorInput
+  date: DateQueryOperatorInput
+  id: IDQueryOperatorInput
+  locale: StringQueryOperatorInput
+  title: StringQueryOperatorInput
+  updatedAt: DateQueryOperatorInput
 }
 
 input DateQueryOperatorInput {

@@ -1,17 +1,6 @@
 <template>
   <div class="sidebar">
-    <widget heading="About Me">
-      <img
-        src="/assets/images/about-me.jpg"
-        alt="About Me Image"
-      >
-      <div class="sidebar-text">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-          labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud.
-        </p>
-      </div> <!-- End .sidebar-text -->
-    </widget>
+    <AboutMe />
 
     <widget heading="Subscribe &amp; Follow">
       <span class="social"><a href="#"><i class="fa fa-facebook" /></a></span>
@@ -49,8 +38,10 @@
 <script>
 import Widget from '../Widget.vue'
 import RecentPosts from './RecentPosts.vue';
+import AboutMe from './AboutMe.vue';
+
 export default {
   name: 'Sidebar',
-  components: {RecentPosts, Widget }
+  components: {AboutMe, RecentPosts, Widget }
 }
 </script>
