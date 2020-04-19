@@ -139,6 +139,56 @@ type ContentfulBlogPostEdge implements NodeConnectionEdge {
   previous: ContentfulBlogPost
 }
 
+type ContentfulPageHome implements Node {
+  belongsTo(
+    filter: BelongsToFilterInput,
+    limit: Int,
+    order: SortOrder = DESC,
+    page: Int,
+    "Defaults to 25 when page is provided."
+    perPage: Int,
+    skip: Int = 0,
+    sort: [SortArgument!],
+    sortBy: String = "date"
+  ): NodeBelongsTo
+  createdAt(
+    "Date format"
+    format: String,
+    "Locale"
+    locale: String
+  ): Date
+  date(
+    "Date format"
+    format: String,
+    "Locale"
+    locale: String
+  ): Date
+  heroBlurb: String
+  heroHeading: String
+  heroSubHeading: String
+  id: ID!
+  locale: String
+  title: String
+  updatedAt(
+    "Date format"
+    format: String,
+    "Locale"
+    locale: String
+  ): Date
+}
+
+type ContentfulPageHomeConnection implements NodeConnection {
+  edges: [ContentfulPageHomeEdge]
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
+type ContentfulPageHomeEdge implements NodeConnectionEdge {
+  next: ContentfulPageHome
+  node: ContentfulPageHome
+  previous: ContentfulPageHome
+}
+
 type ContentfulPerson implements Node {
   belongsTo(
     filter: BelongsToFilterInput,
@@ -255,6 +305,18 @@ type Query {
     sort: [SortArgument],
     sortBy: String = "date"
   ): ContentfulBlogPostConnection
+  allContentfulPageHome(
+    "Filter for ContentfulPageHome nodes."
+    filter: ContentfulPageHomeFilterInput,
+    limit: Int,
+    order: SortOrder = DESC,
+    page: Int,
+    "Defaults to 25 when page is provided."
+    perPage: Int,
+    skip: Int = 0,
+    sort: [SortArgument],
+    sortBy: String = "date"
+  ): ContentfulPageHomeConnection
   allContentfulPerson(
     "Filter for ContentfulPerson nodes."
     filter: ContentfulPersonFilterInput,
@@ -283,6 +345,12 @@ type Query {
     nullable: Boolean = false,
     path: String
   ): ContentfulBlogPost
+  contentfulPageHome(
+    id: ID,
+    "Will return an error if not nullable."
+    nullable: Boolean = false,
+    path: String
+  ): ContentfulPageHome
   contentfulPerson(
     id: ID,
     "Will return an error if not nullable."
@@ -317,6 +385,7 @@ enum SortOrder {
 enum TypeName {
   ContentfulAsset
   ContentfulBlogPost
+  ContentfulPageHome
   ContentfulPerson
 }
 
@@ -354,6 +423,18 @@ input ContentfulBlogPostFilterInput {
   publishDate: DateQueryOperatorInput
   slug: StringQueryOperatorInput
   tags: StringListQueryOperatorInput
+  title: StringQueryOperatorInput
+  updatedAt: DateQueryOperatorInput
+}
+
+input ContentfulPageHomeFilterInput {
+  createdAt: DateQueryOperatorInput
+  date: DateQueryOperatorInput
+  heroBlurb: StringQueryOperatorInput
+  heroHeading: StringQueryOperatorInput
+  heroSubHeading: StringQueryOperatorInput
+  id: IDQueryOperatorInput
+  locale: StringQueryOperatorInput
   title: StringQueryOperatorInput
   updatedAt: DateQueryOperatorInput
 }

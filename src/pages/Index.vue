@@ -6,12 +6,10 @@
           <div class="container">
             <div class="row">
               <div class="col-md-10 col-md-offset-1">
-                <g-image src="~/assets/images/author.jpg" alt=""></g-image>
-                <h1>Hi, I am Jone Doe</h1>
-                <h2>Web Developer</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsam vel dolores qui, necessitatibus aut
-                   eaque magni mollitia tenetur molestiae sit quae quos quaerat amet exercitationem atque animi odio
-                   minima vero.</p>
+                <!--<g-image src="~/assets/images/author.jpg" alt=""></g-image>-->
+                <h1>{{ $page.context.heroHeading }}</h1>
+                <h2>{{ $page.context.heroSubHeading }}</h2>
+                <p>{{ $page.context.heroBlurb }}</p>
               </div>
             </div>
           </div>
@@ -28,280 +26,11 @@
         <div class="row">
           <div class="col-md-8">
             <div class="primary">
-              <div class="blog-post">
-                <div class="thum-item">
-                  <g-image src="~/assets/images/placeholder-post-thum.jpg" alt="Post Thumnail Image"></g-image>
-                </div> <!-- End .thum-item -->
-                <div class="post">
-                  <div class="blog-title">
-                    <h2><a href="#">Sophisticated Kiev Home Makes</a></h2>
-                  </div>
-                  <div class="meta">
-                    <ul>
-                      <li class="category"><a href="archive.html">Lifestyle</a></li>
-                      <li class="author">By Admin</li>
-                      <li class="date">JUne 14, 2015</li>
-                      <li class="comment">4 Comments</li>
-                    </ul>
-                  </div> <!-- End .meta -->
-                  <div class="content">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                       labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                       nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                       velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                       proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde
-                       omnis iste natus error sit aperiam.</p>
-                  </div> <!-- End .content -->
-                  <div class="line"></div>
-                  <div class="share">
-                    <div class="post-bottom">
-                      <div class="continue">
-                        <a href="#">Continue Reading <span><i class="fa fa-long-arrow-right"></i></span></a>
-                      </div> <!-- End .continue -->
-                      <div class="share-iocn">
-                        <span class="share">Share:</span>
-                        <span class="icon"><a href="#"><i class="fa fa-facebook"></i></a></span>
-                        <span class="icon"><a href="#"><i class="fa fa-twitter"></i></a></span>
-                        <span class="icon"><a href="#"><i class="fa fa-google-plus"></i></a></span>
-                        <span class="icon"><a href="#"><i class="fa fa-pinterest"></i></a></span>
-                      </div> <!-- End .share-iocn -->
-                    </div> <!-- End .post-bottom -->
-                  </div> <!-- End .share -->
-                </div> <!--  End .post -->
-              </div> <!-- End .blog-post -->
-              <div class="blog-post">
-                <div class="thum-item">
-                  <g-image src="~/assets/images/placeholder-post-thum.jpg" alt="Post Thumnail Image"></g-image>
-                </div> <!-- End .thum-item -->
-                <div class="post">
-                  <div class="blog-title">
-                    <h2><a href="#">Sophisticated Kiev Home Makes</a></h2>
-                  </div>
-                  <div class="meta">
-                    <ul>
-                      <li class="category"><a href="archive.html">Lifestyle</a></li>
-                      <li class="author">By Admin</li>
-                      <li class="date">JUne 14, 2015</li>
-                      <li class="comment">4 Comments</li>
-                    </ul>
-                  </div> <!-- End .meta -->
-                  <div class="content">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                       labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                       nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                       velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                       proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde
-                       omnis iste natus error sit aperiam.</p>
-                  </div> <!-- End .content -->
-                  <div class="line"></div>
-                  <div class="share">
-                    <div class="post-bottom">
-                      <div class="continue">
-                        <a href="#">Continue Reading <span><i class="fa fa-long-arrow-right"></i></span></a>
-                      </div> <!-- End .continue -->
-                      <div class="share-iocn">
-                        <span class="share">Share:</span>
-                        <span class="icon"><a href="#"><i class="fa fa-facebook"></i></a></span>
-                        <span class="icon"><a href="#"><i class="fa fa-twitter"></i></a></span>
-                        <span class="icon"><a href="#"><i class="fa fa-google-plus"></i></a></span>
-                        <span class="icon"><a href="#"><i class="fa fa-pinterest"></i></a></span>
-                      </div> <!-- End .share-iocn -->
-                    </div> <!-- End .post-bottom -->
-                  </div> <!-- End .share -->
-                </div>
-              </div> <!-- End .blog-post -->
-              <div class="blog-post">
-                <div class="thum-item">
-                  <img src="/assets/images/placeholder-post-thum.jpg" alt="Post Thumnail Image">
-                </div> <!-- End .thum-item -->
-                <div class="post">
-                  <div class="blog-title">
-                    <h2><a href="#">Sophisticated Kiev Home Makes</a></h2>
-                  </div>
-                  <div class="meta">
-                    <ul>
-                      <li class="category"><a href="archive.html">Lifestyle</a></li>
-                      <li class="author">By Admin</li>
-                      <li class="date">JUne 14, 2015</li>
-                      <li class="comment">4 Comments</li>
-                    </ul>
-                  </div> <!-- End .meta -->
-                  <div class="content">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                       labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                       nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                       velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                       proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde
-                       omnis iste natus error sit aperiam.</p>
-                  </div> <!-- End .content -->
-                  <div class="line"></div>
-                  <div class="share">
-                    <div class="post-bottom">
-                      <div class="continue">
-                        <a href="#">Continue Reading <span><i class="fa fa-long-arrow-right"></i></span></a>
-                      </div> <!-- End .continue -->
-                      <div class="share-iocn">
-                        <span class="share">Share:</span>
-                        <span class="icon"><a href="#"><i class="fa fa-facebook"></i></a></span>
-                        <span class="icon"><a href="#"><i class="fa fa-twitter"></i></a></span>
-                        <span class="icon"><a href="#"><i class="fa fa-google-plus"></i></a></span>
-                        <span class="icon"><a href="#"><i class="fa fa-pinterest"></i></a></span>
-                      </div> <!-- End .share-iocn -->
-                    </div> <!-- End .post-bottom -->
-                  </div> <!-- End .share -->
-                </div>
-              </div> <!-- End .blog-post -->
-              <div class="blog-post">
-                <div class="thum-item">
-                  <div class="embed-responsive embed-responsive-16by9">
-                    <iframe src="https://player.vimeo.com/video/44801709?byline=0&portrait=0" width="500" height="281"
-                            allowfullscreen></iframe>
-                  </div> <!-- End .embed-responsive -->
-                </div> <!-- End .thum-item -->
-                <div class="post">
-                  <div class="blog-title">
-                    <h2><a href="#">Sophisticated Kiev Home Makes</a></h2>
-                  </div>
-                  <div class="meta">
-                    <ul>
-                      <li class="category"><a href="archive.html">Lifestyle</a></li>
-                      <li class="author">By Admin</li>
-                      <li class="date">JUne 14, 2015</li>
-                      <li class="comment">4 Comments</li>
-                    </ul>
-                  </div> <!-- End .meta -->
-                  <div class="content">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                       labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                       nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                       velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                       proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde
-                       omnis iste natus error sit aperiam.</p>
-                  </div> <!-- End .content -->
-                  <div class="line"></div>
-                  <div class="share">
-                    <div class="post-bottom">
-                      <div class="continue">
-                        <a href="#">Continue Reading <span><i class="fa fa-long-arrow-right"></i></span></a>
-                      </div> <!-- End .continue -->
-                      <div class="share-iocn">
-                        <span class="share">Share:</span>
-                        <span class="icon"><a href="#"><i class="fa fa-facebook"></i></a></span>
-                        <span class="icon"><a href="#"><i class="fa fa-twitter"></i></a></span>
-                        <span class="icon"><a href="#"><i class="fa fa-google-plus"></i></a></span>
-                        <span class="icon"><a href="#"><i class="fa fa-pinterest"></i></a></span>
-                      </div> <!-- End .share-iocn -->
-                    </div> <!-- End .post-bottom -->
-                  </div> <!-- End .share -->
-                </div>
-              </div> <!-- End .blog-post -->
-              <div class="blog-post">
-                <div class="thum-item">
-                  <div class="embed-responsive embed-responsive-16by9">
-                    <iframe width="854" height="510" src="https://www.youtube.com/embed/pXwaKB7YOjw"
-                            allowfullscreen></iframe>
-                  </div> <!-- End .embed-responsive -->
-                </div> <!-- End .thum-item -->
-                <div class="post">
-                  <div class="blog-title">
-                    <h2><a href="#">Sophisticated Kiev Home Makes</a></h2>
-                  </div>
-                  <div class="meta">
-                    <ul>
-                      <li class="category"><a href="archive.html">Lifestyle</a></li>
-                      <li class="author">By Admin</li>
-                      <li class="date">JUne 14, 2015</li>
-                      <li class="comment">4 Comments</li>
-                    </ul>
-                  </div> <!-- End .meta -->
-                  <div class="content">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                       labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                       nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                       velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                       proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde
-                       omnis iste natus error sit aperiam.</p>
-                  </div> <!-- End .content -->
-                  <div class="line"></div>
-                  <div class="share">
-                    <div class="post-bottom">
-                      <div class="continue">
-                        <a href="#">Continue Reading <span><i class="fa fa-long-arrow-right"></i></span></a>
-                      </div> <!-- End .continue -->
-                      <div class="share-iocn">
-                        <span class="share">Share:</span>
-                        <span class="icon"><a href="#"><i class="fa fa-facebook"></i></a></span>
-                        <span class="icon"><a href="#"><i class="fa fa-twitter"></i></a></span>
-                        <span class="icon"><a href="#"><i class="fa fa-google-plus"></i></a></span>
-                        <span class="icon"><a href="#"><i class="fa fa-pinterest"></i></a></span>
-                      </div> <!-- End .share-iocn -->
-                    </div> <!-- End .post-bottom -->
-                  </div> <!-- End .share -->
-                </div>
-              </div> <!-- End .blog-post -->
-              <div class="blog-post">
-                <div class="thum-item">
-                  <div class="audio-post">
-                    <iframe height="166"
-                            src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/88143385&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>
-                  </div>
-                </div> <!-- End .thum-item -->
-                <div class="post">
-                  <div class="blog-title">
-                    <h2><a href="#">Sophisticated Kiev Home Makes</a></h2>
-                  </div>
-                  <div class="meta">
-                    <ul>
-                      <li class="category"><a href="archive.html">Lifestyle</a></li>
-                      <li class="author">By Admin</li>
-                      <li class="date">JUne 14, 2015</li>
-                      <li class="comment">4 Comments</li>
-                    </ul>
-                  </div> <!-- End .meta -->
-                  <div class="content">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                       labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                       nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                       velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                       proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde
-                       omnis iste natus error sit aperiam.</p>
-                  </div> <!-- End .content -->
-                  <div class="line"></div>
-                  <div class="share">
-                    <div class="post-bottom">
-                      <div class="continue">
-                        <a href="#">Continue Reading <span><i class="fa fa-long-arrow-right"></i></span></a>
-                      </div> <!-- End .continue -->
-                      <div class="share-iocn">
-                        <span class="share">Share:</span>
-                        <span class="icon"><a href="#"><i class="fa fa-facebook"></i></a></span>
-                        <span class="icon"><a href="#"><i class="fa fa-twitter"></i></a></span>
-                        <span class="icon"><a href="#"><i class="fa fa-google-plus"></i></a></span>
-                        <span class="icon"><a href="#"><i class="fa fa-pinterest"></i></a></span>
-                      </div> <!-- End .share-iocn -->
-                    </div> <!-- End .post-bottom -->
-                  </div> <!-- End .share -->
-                </div>
-              </div> <!-- End .blog-post -->
-              <nav>
-                <ul class="pagination">
-                  <li>
-                    <a href="#" aria-label="Previous">
-                      <span aria-hidden="true"><i class="fa fa-angle-left"></i></span>
-                    </a>
-                  </li>
-                  <li class="on"><a href="#">1</a></li>
-                  <li><a href="#">2</a></li>
-                  <li><a href="#">3</a></li>
-                  <li><a href="#">4</a></li>
-                  <li><a href="#">5</a></li>
-                  <li>
-                    <a href="#" aria-label="Next">
-                      <span aria-hidden="true"><i class="fa fa-angle-right"></i></span>
-                    </a>
-                  </li>
-                </ul>
-              </nav>
+                <post-teaser
+                  v-for="post in $page.posts.edges"
+                  :key="post.key"
+                  :post="post.node"
+                ></post-teaser>
             </div>
             <!--
                 ===============
@@ -338,23 +67,6 @@
                   <span class="social"><a href="#"><i class="fa fa-instagram"></i></a></span>
                   <span class="social"><a href="#"><i class="fa fa-youtube-play"></i></a></span>
                   <span class="social"><a href="#"><i class="fa fa-rss"></i></a></span>
-                </div> <!-- End .widget-item -->
-              </div> <!-- End .widget-box -->
-
-              <div class="widget-box">
-                <div class="widget-title">
-                  <span>Search</span>
-                  <div class="line"></div>
-                </div> <!-- End .widget-title -->
-                <div class="widget-item">
-                  <div class="sidebar-text">
-                    <div class="search-input">
-                      <input type="text" class="form-control" id="search" name="search" placeholder="Search Here">
-                    </div>
-                    <div class="search-btn">
-                      <button type="submit" class="btn-black">Search</button>
-                    </div>
-                  </div> <!-- End .sidebar-text -->
                 </div> <!-- End .widget-item -->
               </div> <!-- End .widget-box -->
 
@@ -420,45 +132,6 @@
 
               <div class="widget-box">
                 <div class="widget-title">
-                  <span>Instagram</span>
-                  <div class="line"></div>
-                </div> <!-- End .widget-title -->
-                <div class="widget-item">
-                  <div id="instafeed"></div>
-                </div> <!-- End .widget-item -->
-              </div> <!-- End .widget-box -->
-
-              <div class="widget-box">
-                <div class="widget-title">
-                  <span>Tag Cloud</span>
-                  <div class="line"></div>
-                </div> <!-- End .widget-title -->
-                <div class="widget-item">
-                  <div class="tagcloud">
-                    <a class="btn-white-sm" href="#">lifestyle</a>
-                    <a class="btn-white-sm" href="#">music</a>
-                    <a class="btn-white-sm" href="#">Sundarban</a>
-                    <a class="btn-white-sm" href="#">rock</a>
-                    <a class="btn-white-sm" href="#">video</a>
-                    <a class="btn-white-sm" href="#">superstar</a>
-                    <a class="btn-white-sm" href="#">travel</a>
-                    <a class="btn-white-sm" href="#">lifestyle</a>
-                    <a class="btn-white-sm" href="#">music</a>
-                    <a class="btn-white-sm" href="#">Sundarban</a>
-                    <a class="btn-white-sm" href="#">rock</a>
-                    <a class="btn-white-sm" href="#">video</a>
-                    <a class="btn-white-sm" href="#">rock</a>
-                    <a class="btn-white-sm" href="#">video</a>
-                    <a class="btn-white-sm" href="#">superstar</a>
-                    <a class="btn-white-sm" href="#">travel</a>
-                    <a class="btn-white-sm" href="#">lifestyle</a>
-                    <a class="btn-white-sm" href="#">travel</a>
-                  </div>
-                </div> <!-- End .widget-item -->
-              </div> <!-- End .widget-box -->
-
-              <div class="widget-box">
-                <div class="widget-title">
                   <span>Category</span>
                   <div class="line"></div>
                 </div> <!-- End .widget-title -->
@@ -473,37 +146,6 @@
                 </div> <!-- End .widget-item -->
               </div> <!-- End .widget-box -->
 
-              <div class="widget-box">
-                <div class="widget-title">
-                  <span>Advertisement</span>
-                  <div class="line"></div>
-                </div> <!-- End .widget-title -->
-                <div class="widget-item">
-                  <div class="ad-img">
-                    <a href=""><img src="/assets/images/about-me.jpg" alt="About Me Image"></a>
-                  </div> <!-- End .ad-img -->
-                </div> <!-- End .widget-item -->
-              </div> <!-- End .widget-box -->
-
-              <div class="widget-box">
-                <div class="widget-title">
-                  <span>Newsletter</span>
-                  <div class="line"></div>
-                </div> <!-- End .widget-title -->
-                <div class="widget-item">
-                  <div class="sidebar-text">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                       labore et dolore magna aliqua. </p>
-                    <div class="newsletter-input">
-                      <input type="text" class="form-control" id="name" name="name" placeholder="Type Your Email">
-                    </div>
-                    <div class="newsletter-btn">
-                      <button type="submit" class="btn-black">Send</button>
-                    </div>
-                  </div> <!-- End .sidebar-text -->
-                </div> <!-- End .widget-item -->
-              </div> <!-- End .widget-box -->
-
             </div>
             <!--
                =================
@@ -514,16 +156,46 @@
         </div> <!-- End .row -->
       </div> <!-- End .container -->
     </section>
-    <!--
-       =======================
-         End Section Content
-       =======================
-    -->
   </Layout>
 </template>
 
+<page-query>
+  query {
+    context: contentfulPageHome(id: "u2ATPz5lOtcQdySuyjZUX") {
+      heroHeading,
+      heroSubHeading,
+      heroBlurb
+    }
+    posts: allContentfulBlogPost(limit: 3) {
+      edges {
+        node {
+          id,
+          slug,
+          title,
+          author {
+            name
+          },
+          publishDate,
+          description,
+          body,
+          heroImage {
+            file {
+              url,
+            }
+          }
+        }
+      }
+    }
+  }
+</page-query>
+
 <script>
+import PostTeaser from '~/components/PostTeaser.vue'
+
 export default {
+  components: {
+    PostTeaser
+  },
   metaInfo: {
     title: 'Hello, world!'
   }

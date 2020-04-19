@@ -17,5 +17,8 @@ module.exports = {
         typeName: 'Contentful'
       }
     }
-  ]
+  ],
+  templates: {
+    ContentfulBlogPost: '/blog/:slug'
+  }
 }
