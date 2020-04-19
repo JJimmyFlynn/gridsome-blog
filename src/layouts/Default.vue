@@ -1,46 +1,44 @@
 <template>
   <div>
-    <header id="header" class="header navbar-fixed-top">
+    <header
+      id="header"
+      class="header navbar-fixed-top"
+    >
       <div class="container">
         <!-- Static navbar -->
-        <div class="navbar" role="navigation">
+        <div
+          class="navbar"
+          role="navigation"
+        >
           <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <button
+              type="button"
+              class="navbar-toggle"
+              data-toggle="collapse"
+              data-target=".navbar-collapse"
+            >
               <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
+              <span class="icon-bar" />
+              <span class="icon-bar" />
+              <span class="icon-bar" />
             </button>
-            <a class="navbar-brand" href="index.html">Blogio</a>
+            <a
+              class="navbar-brand"
+              href="#"
+            >Blogio</a>
           </div>
           <div class="navbar-collapse collapse">
             <!-- Right nav -->
             <ul class="nav navbar-nav right">
-              <li><a href="index.html">Home<i class="fa fa-angle-down"></i></a>
-                <ul class="dropdown-menu">
-                  <li><a href="index-full-width.html">Full Width Blog</a></li>
-                  <li><a href="#">Masonry Blog<i class="fa fa-angle-right"></i></a>
-                    <ul class="dropdown-menu">
-                      <li><a href="3column.html">3 Column Full</a></li>
-                      <li><a href="2column-sidebar.html">2 Column with Sidebar</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="index2.html">Style 2</a></li>
-                </ul>
+              <li>
+                <a href="#">Home<i class="fa fa-angle-down" /></a>
               </li>
-              <li><a href="#">Page<i class="fa fa-angle-down"></i></a>
-                <ul class="dropdown-menu">
-                  <li><a href="single.html">Single Page</a></li>
-                  <li><a href="gallery.html">Gallery Post</a></li>
-                  <li><a href="image-post.html">Image Post</a></li>
-                  <li><a href="audio.html">Audio</a></li>
-                  <li><a href="video.html">Video</a></li>
-                  <li><a href="404.html">404 Page</a></li>
-                </ul>
+              <li>
+                <a href="#">Page<i class="fa fa-angle-down" /></a>
               </li>
-              <li><a href="archive.html">Archive</a></li>
-              <li><a href="about.html">About Me</a></li>
-              <li><a href="contact.html">Contact Me</a></li>
+              <li><a href="#">Archive</a></li>
+              <li><a href="#">About Me</a></li>
+              <li><a href="#">Contact Me</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -51,18 +49,43 @@
               End Header
         =====================
      -->
+    <slot name="upper" />
 
-    <slot />
+    <section id="content">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8">
+            <div class="primary">
+              <slot />
+            </div>
+            <!--
+                ===============
+                  End .primary
+                ===============
+            -->
+          </div> <!-- End .col-md-8 -->
+          <div class="col-md-4">
+            <Sidebar />
+            <!--
+               =================
+                 End .sidebar
+               =================
+            -->
+          </div> <!-- End .col-md-4 -->
+        </div> <!-- End .row -->
+      </div> <!-- End .container -->
+    </section>
 
-    <footer id="footer" class="footer">
+    <footer
+      id="footer"
+      class="footer"
+    >
       <div class="container">
         <div class="footer-nav">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="index.html">Home</a></li>
-            <li><a href="#">Privacy & Policy</a></li>
-            <li><a href="archive.html">Archive</a></li>
-            <li><a href="about.html">About Me</a></li>
-            <li><a href="contact.html">Contact Me</a></li>
+            <li class="active">
+              <a href="#">Home</a>
+            </li>
           </ul>
         </div> <!-- End .footer-nav -->
         <div class="copyright">
@@ -79,9 +102,16 @@
 </template>
 
 <static-query>
-query {
-  metadata {
-    siteName
+  query {
+    metadata {
+      siteName
+    }
   }
-}
 </static-query>
+<script>
+import Sidebar from '../components/Sidebar/Sidebar.vue'
+
+export default {
+  components: { Sidebar }
+}
+</script>
