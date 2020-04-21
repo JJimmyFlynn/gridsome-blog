@@ -6,7 +6,10 @@
         :key="category.slug"
         class="cat-item"
       >
-        <a href="#">{{ category.title }} <span>({{ category.belongsTo.totalCount }})</span></a>
+        <g-link :to="`/blog/category/${category.slug}`">
+          {{ category.title }}
+          <span>({{ category.belongsTo.totalCount }})</span>
+        </g-link>
       </li>
     </ul> <!-- End .category-list -->
   </widget>
