@@ -30,85 +30,21 @@
           <richtext :richtext="$page.context.content" />
         </div> <!-- End .content -->
         <div class="line" />
-        <div class="share">
-          <div class="post-bottom">
-            <div class="tag">
-              <span>Tag:</span>
-              <a href="#">lifestyle</a>
-              <a href="#">music</a>
-              <a href="#">rock</a>
-            </div> <!-- End .continue -->
-            <div class="share-iocn">
-              <span class="share">Share:</span>
-              <span class="icon"><a href="#"><i class="fa fa-facebook" /></a></span>
-              <span class="icon"><a href="#"><i class="fa fa-twitter" /></a></span>
-              <span class="icon"><a href="#"><i class="fa fa-google-plus" /></a></span>
-              <span class="icon"><a href="#"><i class="fa fa-pinterest" /></a></span>
-            </div> <!-- End .share-iocn -->
-          </div> <!-- End .post-bottom -->
-        </div> <!-- End .share -->
       </div> <!--  End .post -->
     </div> <!-- End .blog-post -->
     <div class="author-box">
       <div class="photo">
-        <a href="#"><img
-          src="images/author.jpg"
+        <g-image
+          :src="getAuthorImage()"
           alt="S M Mishkatul Islam"
-        ></a>
+        ></g-image>
       </div> <!-- End .photo -->
       <div class="bio">
-        <h5><a href="">S M Mishkatul islam</a></h5>
-        <h6>web designer and developer</h6>
-        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit aperiam.</p>
-        <div class="share-iocn">
-          <span class="icon"><a href="#"><i class="fa fa-facebook" /></a></span>
-          <span class="icon"><a href="#"><i class="fa fa-twitter" /></a></span>
-          <span class="icon"><a href="#"><i class="fa fa-google-plus" /></a></span>
-          <span class="icon"><a href="#"><i class="fa fa-pinterest" /></a></span>
-        </div> <!-- End .share-iocn -->
+        <h5><a href="">{{ $page.context.author.name }}</a></h5>
+        <h6>{{ $page.context.author.company }}</h6>
+        <p>{{ $page.context.author.shortBio }}</p>
       </div> <!-- End .bio -->
     </div> <!-- End .author-box -->
-    <!--<div class="related-post">-->
-    <!--  <span class="title">Realted Post</span>-->
-    <!--  <div class="row">-->
-    <!--    <div class="col-md-4">-->
-    <!--      <div class="item">-->
-    <!--        <a href="#">-->
-    <!--          <img-->
-    <!--            src="images/placeholder-post-thum.jpg"-->
-    <!--            alt="Post"-->
-    <!--          >-->
-    <!--          <h4>Sophisticated Kiev Home Makes</h4>-->
-    <!--        </a>-->
-    <!--        <span>JUne 14, 2015</span>-->
-    <!--      </div> &lt;!&ndash; End .item &ndash;&gt;-->
-    <!--    </div> &lt;!&ndash; End .col-md-4 &ndash;&gt;-->
-    <!--    <div class="col-md-4">-->
-    <!--      <div class="item">-->
-    <!--        <a href="#">-->
-    <!--          <img-->
-    <!--            src="images/placeholder-post-thum.jpg"-->
-    <!--            alt="Post"-->
-    <!--          >-->
-    <!--          <h4>Sophisticated Kiev Home Makes</h4>-->
-    <!--        </a>-->
-    <!--        <span>June 14, 2015</span>-->
-    <!--      </div> &lt;!&ndash; End .item &ndash;&gt;-->
-    <!--    </div> &lt;!&ndash; End .col-md-4 &ndash;&gt;-->
-    <!--    <div class="col-md-4">-->
-    <!--      <div class="item">-->
-    <!--        <a href="#">-->
-    <!--          <img-->
-    <!--            src="images/placeholder-post-thum.jpg"-->
-    <!--            alt="Post"-->
-    <!--          >-->
-    <!--          <h4>Sophisticated Kiev Home Makes</h4>-->
-    <!--        </a>-->
-    <!--        <span>JUne 14, 2015</span>-->
-    <!--      </div> &lt;!&ndash; End .item &ndash;&gt;-->
-    <!--    </div> &lt;!&ndash; End .col-md-4 &ndash;&gt;-->
-    <!--  </div> &lt;!&ndash; End .row &ndash;&gt;-->
-    <!--</div> &lt;!&ndash; End .related-post &ndash;&gt;-->
   </Layout>
 </template>
 
@@ -124,7 +60,14 @@
         }
       },
       author {
-        name
+        name,
+        shortBio,
+        company,
+        image {
+          file {
+            url
+          }
+        }
       },
       categories {
         title,
@@ -152,6 +95,9 @@ export default {
   methods: {
     getFeaturedImage() {
       return this.manipulateImage(this.$page.context.heroImage.file.url, '?w=800')
+    },
+    getAuthorImage() {
+      return this.manipulateImage(this.$page.context.author.image.file.url, '?w=120')
     }
   }
 }
