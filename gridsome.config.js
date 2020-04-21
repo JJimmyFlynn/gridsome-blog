@@ -19,6 +19,7 @@ module.exports = {
     }
   ],
   templates: {
-    ContentfulBlogPost: '/blog/:slug'
+    ContentfulBlogPost: '/blog/:slug',
+    ContentfulCategories: '/blog/category/:slug'
   }
 }

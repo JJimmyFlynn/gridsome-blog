@@ -16,7 +16,11 @@
       </div>
       <div class="meta">
         <ul>
-          <!--<li class="category"><a href="archive.html">Lifestyle</a></li>-->
+          <li
+            class="category"
+          >
+            <categories-list :categories="post.categories" />
+          </li>
           <li class="author">
             By {{ post.author.name }}
           </li>
@@ -46,10 +50,12 @@
 import Contentful from '../mixins/Contentful.vue'
 import Dates from '../mixins/Dates.vue'
 import PostDate from './PostDate.vue'
+import CategoriesList from './CategoriesList.vue'
 
 export default {
   name: 'PostTeaser',
   components: {
+    CategoriesList,
     PostDate
   },
   mixins: [Dates, Contentful],

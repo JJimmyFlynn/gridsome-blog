@@ -48,6 +48,10 @@
             file {
               url,
             }
+          },
+          categories {
+            title,
+            slug
           }
         }
       }

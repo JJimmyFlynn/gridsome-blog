@@ -93,7 +93,7 @@ type ContentfulBlogPost implements Node {
     sort: [SortArgument!],
     sortBy: String = "date"
   ): NodeBelongsTo
-  body: String
+  categories(limit: Int, order: SortOrder = DESC, skip: Int = 0, sort: [SortArgument], sortBy: String): [ContentfulCategories]
   content(html: Boolean = false): ContentfulRichTextField
   createdAt(
     "Date format"
@@ -119,7 +119,6 @@ type ContentfulBlogPost implements Node {
     locale: String
   ): Date
   slug: String
-  tags: [String]
   title: String
   updatedAt(
     "Date format"
@@ -139,6 +138,55 @@ type ContentfulBlogPostEdge implements NodeConnectionEdge {
   next: ContentfulBlogPost
   node: ContentfulBlogPost
   previous: ContentfulBlogPost
+}
+
+type ContentfulCategories implements Node {
+  belongsTo(
+    filter: BelongsToFilterInput,
+    limit: Int,
+    order: SortOrder = DESC,
+    page: Int,
+    "Defaults to 25 when page is provided."
+    perPage: Int,
+    skip: Int = 0,
+    sort: [SortArgument!],
+    sortBy: String = "date"
+  ): NodeBelongsTo
+  createdAt(
+    "Date format"
+    format: String,
+    "Locale"
+    locale: String
+  ): Date
+  date(
+    "Date format"
+    format: String,
+    "Locale"
+    locale: String
+  ): Date
+  id: ID!
+  locale: String
+  name: String
+  slug: String
+  title: String
+  updatedAt(
+    "Date format"
+    format: String,
+    "Locale"
+    locale: String
+  ): Date
+}
+
+type ContentfulCategoriesConnection implements NodeConnection {
+  edges: [ContentfulCategoriesEdge]
+  pageInfo: PageInfo!
+  totalCount: Int!
+}
+
+type ContentfulCategoriesEdge implements NodeConnectionEdge {
+  next: ContentfulCategories
+  node: ContentfulCategories
+  previous: ContentfulCategories
 }
 
 type ContentfulPageHome implements Node {
@@ -356,6 +404,18 @@ type Query {
     sort: [SortArgument],
     sortBy: String = "date"
   ): ContentfulBlogPostConnection
+  allContentfulCategories(
+    "Filter for ContentfulCategories nodes."
+    filter: ContentfulCategoriesFilterInput,
+    limit: Int,
+    order: SortOrder = DESC,
+    page: Int,
+    "Defaults to 25 when page is provided."
+    perPage: Int,
+    skip: Int = 0,
+    sort: [SortArgument],
+    sortBy: String = "date"
+  ): ContentfulCategoriesConnection
   allContentfulPageHome(
     "Filter for ContentfulPageHome nodes."
     filter: ContentfulPageHomeFilterInput,
@@ -408,6 +468,12 @@ type Query {
     nullable: Boolean = false,
     path: String
   ): ContentfulBlogPost
+  contentfulCategories(
+    id: ID,
+    "Will return an error if not nullable."
+    nullable: Boolean = false,
+    path: String
+  ): ContentfulCategories
   contentfulPageHome(
     id: ID,
     "Will return an error if not nullable."
@@ -454,6 +520,7 @@ enum SortOrder {
 enum TypeName {
   ContentfulAsset
   ContentfulBlogPost
+  ContentfulCategories
   ContentfulPageHome
   ContentfulPerson
   ContentfulSettingsSidebar
@@ -483,7 +550,7 @@ input ContentfulAssetInferredQueryOperatorInput {
 
 input ContentfulBlogPostFilterInput {
   author: ContentfulPersonInferredQueryOperatorInput
-  body: StringQueryOperatorInput
+  categories: ContentfulCategoriesInferredListQueryOperatorInput
   content: StringQueryOperatorInput
   createdAt: DateQueryOperatorInput
   date: DateQueryOperatorInput
@@ -494,9 +561,24 @@ input ContentfulBlogPostFilterInput {
   path: StringQueryOperatorInput
   publishDate: DateQueryOperatorInput
   slug: StringQueryOperatorInput
-  tags: StringListQueryOperatorInput
   title: StringQueryOperatorInput
   updatedAt: DateQueryOperatorInput
+}
+
+input ContentfulCategoriesFilterInput {
+  id: IDQueryOperatorInput
+}
+
+input ContentfulCategoriesInferredListQueryOperatorInput {
+  "Use the id field instead."
+  contains: [ID]
+  "Use the id field instead."
+  containsAny: [ID]
+  "Use the id field instead."
+  containsNone: [ID]
+  id: IDQueryOperatorInput
+  "Use the id field instead."
+  size: Int
 }
 
 input ContentfulPageHomeFilterInput {
@@ -593,17 +675,6 @@ input PageFilterInput {
 input SortArgument {
   by: String! = "date"
   order: SortOrder = DESC
-}
-
-input StringListQueryOperatorInput {
-  "Filter by property containing the provided value."
-  contains: [String]
-  "Filter by property containing any of the provided values."
-  containsAny: [String]
-  "Filter by property containing none of the provided values."
-  containsNone: [String]
-  "Filter which have an array property of specified size."
-  size: Int
 }
 
 input StringQueryOperatorInput {
