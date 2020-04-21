@@ -21,7 +21,7 @@
             By {{ post.author.name }}
           </li>
           <li class="date">
-            {{ humanReadableDate(new Date(post.publishDate), 'LLLL Lo, yyyy') }}
+            <post-date :date-string="post.publishDate" />
           </li>
         </ul>
       </div> <!-- End .meta -->
@@ -45,9 +45,13 @@
 <script>
 import Contentful from '../mixins/Contentful.vue'
 import Dates from '../mixins/Dates.vue'
+import PostDate from './PostDate.vue'
 
 export default {
   name: 'PostTeaser',
+  components: {
+    PostDate
+  },
   mixins: [Dates, Contentful],
   props: {
     post: {

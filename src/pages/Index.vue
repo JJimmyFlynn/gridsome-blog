@@ -7,7 +7,6 @@
             <div class="container">
               <div class="row">
                 <div class="col-md-10 col-md-offset-1">
-                  <!--<g-image src="~/assets/images/author.jpg" alt=""></g-image>-->
                   <h1>{{ $page.context.heroHeading }}</h1>
                   <h2>{{ $page.context.heroSubHeading }}</h2>
                   <p>{{ $page.context.heroBlurb }}</p>
@@ -15,13 +14,8 @@
               </div>
             </div>
           </div>
-        </div> <!-- End .style-two -->
+        </div>
       </section>
-      <!--
-          =====================
-            End Section Slider
-          =====================
-       -->
     </template>
 
     <post-teaser
@@ -50,7 +44,6 @@
           },
           publishDate,
           description,
-          body,
           heroImage {
             file {
               url,

@@ -108,6 +108,7 @@
     }
   }
 </static-query>
+
 <script>
 import Sidebar from '../components/Sidebar/Sidebar.vue'
 

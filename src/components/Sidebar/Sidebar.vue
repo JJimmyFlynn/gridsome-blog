@@ -12,7 +12,7 @@
       <span class="social"><a href="#"><i class="fa fa-rss" /></a></span>
     </widget>
 
-    <recent-posts></recent-posts>
+    <recent-posts />
 
     <widget heading="Categories">
       <ul class="category-list">
@@ -37,11 +37,11 @@
 </template>
 <script>
 import Widget from '../Widget.vue'
-import RecentPosts from './RecentPosts.vue';
-import AboutMe from './AboutMe.vue';
+import RecentPosts from './RecentPosts.vue'
+import AboutMe from './AboutMe.vue'
 
 export default {
   name: 'Sidebar',
-  components: {AboutMe, RecentPosts, Widget }
+  components: { AboutMe, RecentPosts, Widget }
 }
 </script>

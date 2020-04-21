@@ -4,7 +4,7 @@
   >
     <div class="thum-img">
       <g-image
-        :src="getThumbnail(post.heroImage.file.url)"
+        :src="getThumbnail()"
         alt="Small Thumbnail Image"
       />
     </div> <!-- End .thum-img -->
@@ -14,7 +14,7 @@
           {{ post.title }}
         </g-link>
       </h4>
-      <p>{{ humanReadableDate(new Date(post.publishDate), 'LLLL Lo, yyyy') }}</p>
+      <p><post-date :date-string="post.publishDate" /></p>
     </div> <!-- End .post-meta -->
   </li> <!-- End .item -->
 </template>
@@ -22,19 +22,23 @@
 <script>
 import Contentful from '../../mixins/Contentful.vue'
 import Dates from '../../mixins/Dates.vue'
+import PostDate from '../PostDate.vue'
 
 export default {
   name: 'PostCard',
+  components: {
+    PostDate
+  },
+  mixins: [Contentful, Dates],
   props: {
     post: {
       type: Object,
       required: true
     }
   },
-  mixins: [Contentful, Dates],
   methods: {
-    getThumbnail (imageUrl) {
-      return this.manipulateImage(imageUrl, 'w=100&h=100&fit=fill')
+    getThumbnail () {
+      return this.manipulateImage(this.post.heroImage.file.url, 'w=100&h=100&fit=fill')
     }
   }
 }

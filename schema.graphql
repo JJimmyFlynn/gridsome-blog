@@ -94,6 +94,7 @@ type ContentfulBlogPost implements Node {
     sortBy: String = "date"
   ): NodeBelongsTo
   body: String
+  content(html: Boolean = false): ContentfulRichTextField
   createdAt(
     "Date format"
     format: String,
@@ -483,6 +484,7 @@ input ContentfulAssetInferredQueryOperatorInput {
 input ContentfulBlogPostFilterInput {
   author: ContentfulPersonInferredQueryOperatorInput
   body: StringQueryOperatorInput
+  content: StringQueryOperatorInput
   createdAt: DateQueryOperatorInput
   date: DateQueryOperatorInput
   description: StringQueryOperatorInput
@@ -632,6 +634,8 @@ input TypeNameQueryOperatorInput {
 scalar Date
 
 scalar Image
+
+scalar ContentfulRichTextField
 
 "The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf)."
 scalar JSON
