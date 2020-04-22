@@ -22,23 +22,34 @@
               <span class="icon-bar" />
               <span class="icon-bar" />
             </button>
-            <a
+            <g-link
               class="navbar-brand"
-              href="#"
-            >Blogio</a>
+              to="/"
+            >
+              Blogio
+            </g-link>
           </div>
           <div class="navbar-collapse collapse">
             <!-- Right nav -->
             <ul class="nav navbar-nav right">
               <li>
-                <a href="#">Home<i class="fa fa-angle-down" /></a>
+                <g-link to="/">
+                  Home
+                </g-link>
               </li>
-              <li>
-                <a href="#">Page<i class="fa fa-angle-down" /></a>
+              <li class="has-dropdown">
+                <a href="#">Categories<i class="fa fa-angle-down" /></a>
+                <ul class="dropdown-menu">
+                  <li
+                    v-for="{ node: category } in $static.context.edges"
+                    :key="category.slug"
+                  >
+                    <g-link :to="`/blog/category/${category.slug}`">
+                      {{ category.title }}
+                    </g-link>
+                  </li>
+                </ul>
               </li>
-              <li><a href="#">Archive</a></li>
-              <li><a href="#">About Me</a></li>
-              <li><a href="#">Contact Me</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -84,12 +95,14 @@
         <div class="footer-nav">
           <ul class="nav navbar-nav">
             <li class="active">
-              <a href="#">Home</a>
+              <g-link to="/">
+                Home
+              </g-link>
             </li>
           </ul>
         </div> <!-- End .footer-nav -->
         <div class="copyright">
-          <span>Copyright 2015, All Rights Reserved <a href="#">Themography.</a></span>
+          <span>Copyright 2015, All Rights Reserved Themography</span>
         </div> <!-- End .copyright -->
       </div> <!-- End .container -->
     </footer>
@@ -103,8 +116,13 @@
 
 <static-query>
   query {
-    metadata {
-      siteName
+    context: allContentfulCategories {
+      edges {
+        node {
+          title,
+          slug
+        }
+      }
     }
   }
 </static-query>

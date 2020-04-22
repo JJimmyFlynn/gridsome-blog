@@ -10,7 +10,7 @@
             <div class="title">
               <h1>Category: {{ $page.context.categoryTitle }}</h1>
             </div><!-- End .title -->
-          </div> <!-- End .conatainer -->
+          </div> <!-- End .container -->
         </div>
       </section>
     </template>
@@ -63,6 +63,11 @@ export default {
   name: 'ContentfulCategory',
   components: {
     PostTeaser
-  }
+  },
+  metaInfo () {
+    return {
+      title: `${this.$page.context.categoryTitle} Archives`
+    }
+  },
 }
 </script>

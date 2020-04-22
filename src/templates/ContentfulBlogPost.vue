@@ -5,7 +5,7 @@
         <g-image
           :src="getFeaturedImage()"
           alt="Post Thumnail Image"
-        ></g-image>
+        />
       </div> <!-- End .thum-item -->
       <div class="post">
         <div class="blog-title">
@@ -14,7 +14,7 @@
         <div class="meta">
           <ul>
             <li class="category">
-              <categories-list :categories="$page.context.categories"></categories-list>
+              <categories-list :categories="$page.context.categories" />
             </li>
             <li class="author">
               By {{ $page.context.author.name }}
@@ -37,7 +37,7 @@
         <g-image
           :src="getAuthorImage()"
           alt="S M Mishkatul Islam"
-        ></g-image>
+        />
       </div> <!-- End .photo -->
       <div class="bio">
         <h5><a href="">{{ $page.context.author.name }}</a></h5>
@@ -80,9 +80,9 @@
 <script>
 import Contentful from '../mixins/Contentful.vue'
 import Richtext from '../components/Richtext.vue'
-import Dates from '../mixins/Dates.vue';
+import Dates from '../mixins/Dates.vue'
 import PostDate from '../components/PostDate.vue'
-import CategoriesList from '../components/CategoriesList.vue';
+import CategoriesList from '../components/CategoriesList.vue'
 
 export default {
   name: 'ContentfullBlogPost',
@@ -92,11 +92,16 @@ export default {
     PostDate
   },
   mixins: [Contentful, Dates],
+  metaInfo () {
+    return {
+      title: this.$page.context.title
+    }
+  },
   methods: {
-    getFeaturedImage() {
+    getFeaturedImage () {
       return this.manipulateImage(this.$page.context.heroImage.file.url, '?w=800')
     },
-    getAuthorImage() {
+    getAuthorImage () {
       return this.manipulateImage(this.$page.context.author.image.file.url, '?w=120')
     }
   }

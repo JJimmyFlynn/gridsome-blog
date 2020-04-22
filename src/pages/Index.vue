@@ -65,9 +65,6 @@ import PostTeaser from '~/components/PostTeaser.vue'
 export default {
   components: {
     PostTeaser
-  },
-  metaInfo: {
-    title: 'Hello, world!'
   }
 }
 </script>
